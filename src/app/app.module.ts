@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-
+import {SharedModule} from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './component/home/home.component';
-import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
-import { UserComponent } from './component/user/user.component';
-import { UserListComponent } from './component/user-list/user-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -21,10 +17,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    BreadcrumbComponent,
-    UserComponent,
-    UserListComponent
   ],
   imports: [
     BrowserModule,

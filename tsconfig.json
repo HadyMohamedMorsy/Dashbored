@@ -2,6 +2,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@modal/*" : ["./src/app/global-modal/*"],
+      "@services/*" : ["./src/app/global-services/*"],
+      "@environment/*" : ["./src/environments/*"]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
