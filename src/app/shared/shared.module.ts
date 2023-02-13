@@ -6,7 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
-
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
 @NgModule({
   declarations: [],
   imports: [
@@ -15,13 +16,17 @@ import { LayoutModule } from './layout/layout.module';
     FormsModule,
     HttpClientModule,
     FormlyPrimeNGModule,
-    LayoutModule
+    LayoutModule,
+    InputTextModule
   ],
   exports : [
       FormlyModule
     , FormsModule
     , ReactiveFormsModule
     , HttpClientModule ,
-      FormlyPrimeNGModule]
+      FormlyPrimeNGModule,
+      InputTextModule,
+      ButtonModule
+    ]
 })
 export class SharedModule { }

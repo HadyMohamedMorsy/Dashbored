@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
-import {FormGroup} from '@angular/forms';
-import {FormlyFieldConfig} from '@ngx-formly/core';
 import { Login } from '@modal/login';
 import { AuthService } from '@services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,38 +10,20 @@ import { AuthService } from '@services/auth.service';
 })
 export class LoginComponent {
   private auth  = inject(AuthService);
-  form = new FormGroup({});
-  model= {
-    email : '',
-    password : ''
-  };
+  private LoginBuilder = inject(FormBuilder);
+  contactLoginForm !: FormGroup;
+  
+  ngOnInit(): void {
+    this.contactLoginForm = this.LoginBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+    })
+    
+  }
 
-  fields: FormlyFieldConfig[] = [
-    {
-      key: 'email',
-      type: 'input',
-      props: {
-        label: 'Email address',
-        placeholder: 'Enter email',
-        required: true,
-      }
-    },
-    {
-      key: 'password',
-      type: 'input',
-      props: {
-        type : 'password',
-        label: 'Enter your Password',
-        placeholder: 'Enter your Password',
-        required: true,
-      }
-    }
-  ];
-
-  onSubmit(model : Login) {
-    this.auth.login(model).subscribe((v)=>{
+  onSubmit() {
+    this.auth.login(this.contactLoginForm.value).subscribe((v)=>{
         console.log(v);
     })
-
   }
 }
