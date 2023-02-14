@@ -21,7 +21,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
   ]
+
 })
-export class AuthModule { }
+export class AuthModule {}

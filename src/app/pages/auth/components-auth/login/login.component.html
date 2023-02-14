@@ -10,14 +10,15 @@
           </div>
         </div>
         <div class="lg:col-6 col-12">
+          <p-toast position="top-left"></p-toast>
           <form  [formGroup]="contactLoginForm" (ngSubmit)="onSubmit()" class="h-full pt-8 w-6 mx-auto">
             <h2 class="text-center text-5xl mb-2 mt-2"> Hello Again !</h2>
             <p class="mb-6 text-center text-color"> Welcome Back You've been missed !</p>
             <div class="field">
-              <input class="w-full pt-3 pb-3" type="email" pInputText  formControlName = "email"  name="email" placeholder="Email"/> 
+              <input class="w-full pt-3 pb-3" type="email" pInputText  formControlName = "email"  name="email" placeholder="Email"/>
             </div>
             <div class="field">
-              <input class="w-full pt-3 pb-3" type="password" pInputText  formControlName = "password"  name="password" placeholder="Enter Your Password"/>  
+              <input class="w-full pt-3 pb-3" type="password" pInputText  formControlName = "password"  name="password" placeholder="Enter Your Password"/>
             </div>
             <p class="flex justify-content-end mt-4 mb-4"> <a href="#"> Recovery Password</a></p>
             <button pButton type="submit" label="Sign In" class="w-full pt-3 pb-3" ></button>

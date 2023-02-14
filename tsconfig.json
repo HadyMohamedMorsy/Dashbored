@@ -5,7 +5,8 @@
     "paths": {
       "@modal/*" : ["./src/app/global-modal/*"],
       "@services/*" : ["./src/app/global-services/*"],
-      "@environment/*" : ["./src/environments/*"]
+      "@environment/*" : ["./src/environments/*"],
+      "@interceptor/*" : ["./src/app/shared/*"]
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
