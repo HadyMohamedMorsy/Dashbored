@@ -4,17 +4,33 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpParams
 } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
-
+import { catchError, exhaustMap, Observable, switchMap, throwError, take } from 'rxjs';
+import { AuthService } from '@services/auth.service';
+import { User } from '../global-services/user-modal';
 @Injectable()
 export class HandlerRequestInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private AuthService : AuthService) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request).pipe(catchError(this.HandlerError));
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return this.AuthService.EmitsDataForUser.pipe(
+        take(1),
+        switchMap(res => {
+          if(!res){
+            return next.handle(request).pipe(catchError(this.HandlerError));
+          }
+          const RequestHandler = request.clone(
+            {
+              params : new HttpParams().set('Authorization' , res.token ? res.token : ''),
+            }
+          )
+          return next.handle(RequestHandler).pipe(catchError(this.HandlerError));
+        })
+
+    );
   }
 
   private HandlerError(err : HttpErrorResponse) {

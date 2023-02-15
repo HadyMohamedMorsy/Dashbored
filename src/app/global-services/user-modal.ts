@@ -1,12 +1,12 @@
-export class user {
+export class User {
   constructor(
-     public user : string ,
-     public email : string,
-     public created_at: Date,
-     public updated_at :Date,
-     private _token : string ,
-     private _token_type : string,
-     private _expires_in : Date
+     public user : string | undefined ,
+     public email : string | undefined ,
+     public created_at: string | undefined ,
+     public updated_at :string | undefined ,
+     private _token : string | undefined ,
+     private _token_type : string | undefined ,
+     private _expires_in : Date | undefined
     )
   {}
 
