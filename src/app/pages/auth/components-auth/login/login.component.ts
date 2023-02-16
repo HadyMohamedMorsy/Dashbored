@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, inject } from '@angular/core';
 import { Login } from '@modal/login';
 import { AuthService } from '@services/auth.service';
@@ -12,7 +13,7 @@ import {MessageService} from 'primeng/api';
 })
 export class LoginComponent {
 
-  constructor( private MessageService : MessageService) {}
+  constructor( private MessageService : MessageService , private Router : Router) {}
 
   private auth  = inject(AuthService);
   private LoginBuilder = inject(FormBuilder);
@@ -26,16 +27,14 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    
+
     if(this.contactLoginForm.controls['email'].status == 'INVALID' || this.contactLoginForm.controls['email'].errors != null || this.contactLoginForm.controls['password'].status == 'INVALID'){
-
       this.MessageService.add({ severity: 'error', summary: 'please check your Email Or Password', detail: 'Validation failed'});
-
     }else{
       this.auth.login(this.contactLoginForm.value)
       .subscribe({
         next: (v) => {
-          console.log(v)
+          this.Router.navigate(['/']);
         },
         error: (e) => {
           this.MessageService.add({ severity: 'error', summary: e, detail: 'Validation failed' });
