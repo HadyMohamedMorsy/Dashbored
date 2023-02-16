@@ -11,12 +11,14 @@ import { User } from './user-modal';
 })
 export class AuthService {
   EmitsDataForUser = new BehaviorSubject<null | User>(null);
+  TimerExpirationToken !: any;
   private http = inject(HttpClient);
   constructor(private route : Router) {}
 
   login(authUser : Login){
     return this.http.post<ResponseLogin>(`${environment.apiUrl}/auth/login` , authUser).pipe(
       tap((response) =>{
+        this.autoLogout(+response.expires_in * 1000);
         const expireSessionUser = new Date(new Date().getTime() + +response.expires_in * 1000);
         const user = new User(
           response.user?.name,
@@ -37,6 +39,11 @@ export class AuthService {
     this.EmitsDataForUser.next(null);
     this.route.navigate(['/auth']);
     localStorage.removeItem('DataUser');
+
+    if(this.TimerExpirationToken){
+      clearTimeout(this.TimerExpirationToken);
+    }
+    this.TimerExpirationToken = null;
   }
 
   autoLogin(){
@@ -52,14 +59,19 @@ export class AuthService {
         getDataUser.access_token,
         getDataUser.token_type,
         new Date(getDataUser._expires_in)
-    )
+    );
 
     if(CurrentUser.token){
+      let expiationTime = new Date(getDataUser._expires_in).getTime() - new Date().getTime();
+      this.autoLogout(expiationTime);
       this.EmitsDataForUser.next(CurrentUser);
     }
   }
 
-  autoLogout(){
-    
+  autoLogout(expiationTimeToken : number){
+    console.log(expiationTimeToken);
+  this.TimerExpirationToken = setTimeout(()=>{
+      this.logout();
+    },expiationTimeToken)
   }
 }
