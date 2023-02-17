@@ -9,6 +9,8 @@ import { LayoutModule } from './layout/layout.module';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 @NgModule({
   declarations: [],
   imports: [
@@ -20,6 +22,7 @@ import {ToastModule} from 'primeng/toast';
     LayoutModule,
     InputTextModule,
     ToastModule,
+    NgxSpinnerModule
   ],
   exports : [
       FormlyModule
@@ -30,6 +33,7 @@ import {ToastModule} from 'primeng/toast';
       InputTextModule,
       ButtonModule,
       ToastModule,
+      NgxSpinnerModule
     ]
 })
 export class SharedModule { }

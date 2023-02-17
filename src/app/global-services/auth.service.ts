@@ -48,30 +48,31 @@ export class AuthService {
 
   autoLogin(){
     // Refactoring Code
-    let DataUser : any =  localStorage.getItem('DataUser');
-    let getDataUser = JSON.parse(DataUser);
+    if(localStorage.getItem('DataUser')){
+        let DataUser : any =  localStorage.getItem('DataUser');
+        let getDataUser = JSON.parse(DataUser);
 
-    const CurrentUser = new User(
-        getDataUser.user?.name,
-        getDataUser.user?.email,
-        getDataUser.user?.created_at,
-        getDataUser.user?.updated_at,
-        getDataUser.access_token,
-        getDataUser.token_type,
-        new Date(getDataUser._expires_in)
-    );
+        const CurrentUser = new User(
+            getDataUser.user,
+            getDataUser.email,
+            getDataUser.created_at,
+            getDataUser.updated_at,
+            getDataUser._token,
+            getDataUser._token_type,
+            new Date(getDataUser._expires_in)
+        );
 
-    if(CurrentUser.token){
-      let expiationTime = new Date(getDataUser._expires_in).getTime() - new Date().getTime();
-      this.autoLogout(expiationTime);
-      this.EmitsDataForUser.next(CurrentUser);
+        if(CurrentUser.token != undefined){
+          let expiationTime = new Date(getDataUser._expires_in).getTime() - new Date().getTime();
+          this.autoLogout(expiationTime);
+          this.EmitsDataForUser.next(CurrentUser);
+        }
     }
   }
 
   autoLogout(expiationTimeToken : number){
-    console.log(expiationTimeToken);
-  this.TimerExpirationToken = setTimeout(()=>{
-      this.logout();
-    },expiationTimeToken)
+    this.TimerExpirationToken = setTimeout(()=>{
+        this.logout();
+      },expiationTimeToken)
   }
 }
