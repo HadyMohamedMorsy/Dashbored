@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  apiUrl : 'https://digitalatum.com/api'
+  production: false,
+  apiUrl : 'https://digitalatum.com/dashbored/backend/api'
 };

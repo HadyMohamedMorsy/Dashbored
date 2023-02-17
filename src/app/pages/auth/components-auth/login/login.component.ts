@@ -26,12 +26,6 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     })
-
-    this.loading.show();
-    setTimeout(() => {
-      this.loading.hide();
-    }, 1500);
-
   }
 
   onSubmit() {
