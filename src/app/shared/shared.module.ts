@@ -10,6 +10,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { MenubarModule } from 'primeng/menubar';
+
 
 @NgModule({
   declarations: [],
@@ -22,18 +24,20 @@ import { NgxSpinnerModule } from "ngx-spinner";
     LayoutModule,
     InputTextModule,
     ToastModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MenubarModule,
   ],
-  exports : [
-      FormlyModule
-    , FormsModule
-    , ReactiveFormsModule
-    , HttpClientModule ,
-      FormlyPrimeNGModule,
-      InputTextModule,
-      ButtonModule,
-      ToastModule,
-      NgxSpinnerModule
-    ]
+  exports: [
+    FormlyModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormlyPrimeNGModule,
+    InputTextModule,
+    ButtonModule,
+    ToastModule,
+    NgxSpinnerModule,
+    MenubarModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
