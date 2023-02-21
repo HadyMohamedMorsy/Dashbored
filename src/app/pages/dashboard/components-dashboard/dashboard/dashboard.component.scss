@@ -4,3 +4,8 @@ img{
     object-fit: cover;
     border-radius: 50%;
 }
+
+:host ::ng-deep .p-menubar{
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0;
+}

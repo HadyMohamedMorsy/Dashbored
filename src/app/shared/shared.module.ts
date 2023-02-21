@@ -11,6 +11,8 @@ import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MenubarModule } from 'primeng/menubar';
+import { SidebarModule } from 'primeng/sidebar';
+
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { MenubarModule } from 'primeng/menubar';
     ToastModule,
     NgxSpinnerModule,
     MenubarModule,
+    SidebarModule,
   ],
   exports: [
     FormlyModule,
@@ -38,6 +41,7 @@ import { MenubarModule } from 'primeng/menubar';
     ToastModule,
     NgxSpinnerModule,
     MenubarModule,
+    SidebarModule,
   ],
 })
 export class SharedModule {}
