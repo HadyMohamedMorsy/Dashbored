@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit, inject} from '@angular/core';
 import { AuthService } from '@services/auth.service';
 import { MenuItem } from 'primeng/api';
@@ -9,7 +10,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class AdminLayoutComponent implements OnInit {
   private auth = inject(AuthService);
-
+  private breakpointObserver = inject(BreakpointObserver);
   display = true;
   navbar!: MenuItem[];
   sidebarItems!: MenuItem[];
@@ -17,28 +18,6 @@ export class AdminLayoutComponent implements OnInit {
   ngOnInit() {
     this.auth.autoLogin();
 
-    this.navbar = [
-      {
-        label: 'File',
-        items: [
-          {
-            label: 'New',
-            icon: 'pi pi-fw pi-plus',
-            items: [{ label: 'Project' }, { label: 'Other' }],
-          },
-          { label: 'Open' },
-          { label: 'Quit' },
-        ],
-      },
-      {
-        label: 'Edit',
-        icon: 'pi pi-fw pi-pencil',
-        items: [
-          { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-          { label: 'Refresh', icon: 'pi pi-fw pi-refresh' },
-        ],
-      },
-    ];
     this.sidebarItems = [
       {
         label: 'Dashboard',
@@ -100,5 +79,19 @@ export class AdminLayoutComponent implements OnInit {
         items: [{ label: 'All Comments', icon: 'pi pi-fw pi-table' }],
       },
     ];
+
+    this.breakpointObserver.observe(
+      ['(max-width : 767px)']
+    ).subscribe((state : BreakpointState) =>{
+        if(state.matches){
+          this.display = false;
+        }else{
+          this.display = true;
+        }
+    })
+  }
+
+  toggleSideBar() {
+    this.display = !this.display;
   }
 }

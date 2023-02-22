@@ -10,4 +10,4 @@ import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
   declarations: [AdminLayoutComponent, AuthLayoutComponent],
   imports: [SharedModule, CommonModule, RouterModule],
 })
-export class LayoutModule {}
+export class SharedLayoutModule {}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutModule } from './layout/layout.module';
+import { SharedLayoutModule } from './layout/layout.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
@@ -13,6 +13,8 @@ import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { AvatarModule } from 'primeng/avatar';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { AvatarModule } from 'primeng/avatar';
     SidebarModule,
     PanelMenuModule,
     AvatarModule,
+    SplitButtonModule,
+    LayoutModule,
   ],
   exports: [
     FormlyModule,
@@ -45,6 +49,8 @@ import { AvatarModule } from 'primeng/avatar';
     SidebarModule,
     PanelMenuModule,
     AvatarModule,
+    SplitButtonModule,
+    LayoutModule,
   ],
 })
 export class SharedModule {}
