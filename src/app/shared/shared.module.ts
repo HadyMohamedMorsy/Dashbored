@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { SharedLayoutModule } from './layout/layout.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
-import { FormsModule } from '@angular/forms';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { HttpClientModule } from '@angular/common/http';
-import { LayoutModule } from './layout/layout.module';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MenubarModule } from 'primeng/menubar';
+import { SidebarModule } from 'primeng/sidebar';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { AvatarModule } from 'primeng/avatar';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 @NgModule({
@@ -21,11 +25,15 @@ import { MenubarModule } from 'primeng/menubar';
     FormsModule,
     HttpClientModule,
     FormlyPrimeNGModule,
-    LayoutModule,
     InputTextModule,
     ToastModule,
     NgxSpinnerModule,
     MenubarModule,
+    SidebarModule,
+    PanelMenuModule,
+    AvatarModule,
+    SplitButtonModule,
+    LayoutModule,
   ],
   exports: [
     FormlyModule,
@@ -38,6 +46,11 @@ import { MenubarModule } from 'primeng/menubar';
     ToastModule,
     NgxSpinnerModule,
     MenubarModule,
+    SidebarModule,
+    PanelMenuModule,
+    AvatarModule,
+    SplitButtonModule,
+    LayoutModule,
   ],
 })
 export class SharedModule {}
