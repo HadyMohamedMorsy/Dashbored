@@ -3,8 +3,15 @@
 @import '~primeng/resources/themes/lara-light-blue/theme.css';
 @import '~primeng/resources/themes/lara-light-blue/theme.css';
 @import '~primeflex/primeflex.css';
-@import './styles//varebales';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+:root{
+  --bodyColor : rgb(249, 249, 249);
+  --content   : hsl(210 , 62% , 95% , 1);
+  --black     : hsl(226, 34%, 20%);
+  --white     : hsl(3, 100%, 100%);
+  --text      : #6b6b6b;
+}
 
 
 .container{
@@ -23,6 +30,34 @@ body{
   padding: 0;
   background-color: var(--bodyColor);
   font-family: 'Roboto Condensed', sans-serif;
+}
+.p-panelmenu{
+  .p-panelmenu-header{
+    & > a{
+      background-color: transparent;
+      border: none;
+      font-weight: 400;
+      padding: 1rem;
+      color: var(--white);
+    }
+  }
+}
+.p-sidebar{
+  background-color: var(--black);
+  .p-sidebar-content{
+    padding: 0;
+  }
+}
+
+.p-menubar{
+  .p-menubar-end{
+    display: flex;
+  }
+  border-radius: 0;
+  background-color: var(--white);
+  box-shadow: 0 10px 30px 0 rgba(47, 60, 74, 0.08);
+  border: none;
+  min-height: 70px;
 }
 a{
   text-decoration: none;

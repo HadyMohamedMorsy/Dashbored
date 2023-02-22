@@ -5,7 +5,8 @@
 <div class="container">
   <p-menubar  [model]="navbar">
       <ng-template pTemplate="end">
-          <p-avatar image="../../../../../assets/imgs/hady.jpg" shape="circle"></p-avatar>
+          <button pButton type="button" class="p-button-rounded  p-button-warning p-button-text"  icon="pi pi-bell"></button>
+          <p-avatar image="../../../../../assets/imgs/hady.jpg" shape="circle" size="large"></p-avatar>
       </ng-template>
   </p-menubar>
   <router-outlet></router-outlet>
