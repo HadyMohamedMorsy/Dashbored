@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AuthLayoutComponent} from './shared/layout/auth-layout/auth-layout.component';
+import { AdminLayoutComponent } from './shared/layout/admin-layout/admin-layout.component';
 import {AuthGuardService} from '@authGuard/auth-guards.service';
 import {LoginService} from '@authGuard/login-guard.service';
 
@@ -12,9 +13,14 @@ const routes: Routes = [
   },
   {
     path : 'admin',
+    component : AdminLayoutComponent,
     canActivate : [AuthGuardService],
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
-    pathMatch : 'full'
+    children : [
+      {
+        path : '',
+        loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+      }
+    ],
   },
   {
     path : 'auth' ,

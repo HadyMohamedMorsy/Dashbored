@@ -1,7 +1,7 @@
 :root{
-  --bodyColor : hsl(224 , 27% , 92% , 1);
+  --bodyColor : rgb(249, 249, 249);
   --content   : hsl(210 , 62% , 95% , 1);
-  --black     : hsl(0 , 0% , 8% , 1);
+  --black     : hwb(0 8% 92%);
   --white     : hsl(0 ,0%,99%,1);
   --text      : #6b6b6b
 }

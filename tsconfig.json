@@ -6,7 +6,7 @@
       "@modal/*" : ["./src/app/global-modal/*"],
       "@services/*" : ["./src/app/global-services/*"],
       "@environment/*" : ["./src/environments/*"],
-      "@interceptor/*" : ["./src/app/shared/*"],
+      "@shared/*" : ["./src/app/shared/*"],
       "@authGuard/*" : ["./src/app/global-services/*"]
     },
     "baseUrl": "./",

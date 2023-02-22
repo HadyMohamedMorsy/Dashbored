@@ -1,3 +1,12 @@
-<p>
-  admin-layout works!
-</p>
+
+<p-sidebar [(visible)]="display" [showCloseIcon]="false">
+    <p-panelMenu [model]="sidebarItems"></p-panelMenu>
+</p-sidebar>
+<div class="container">
+  <p-menubar  [model]="navbar">
+      <ng-template pTemplate="end">
+          <p-avatar image="../../../../../assets/imgs/hady.jpg" shape="circle"></p-avatar>
+      </ng-template>
+  </p-menubar>
+  <router-outlet></router-outlet>
+</div>

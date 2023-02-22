@@ -1,0 +1,19 @@
+img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+:host ::ng-deep {
+  .p-sidebar-left{
+    width: 15rem;
+  }
+  .p-panelmenu{
+    .p-panelmenu-header{
+      & > a{
+        background-color: transparent;
+        border: none;
+      }
+    }
+  }
+}
