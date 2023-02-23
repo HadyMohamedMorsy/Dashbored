@@ -6,6 +6,7 @@ import { AllBlogsComponent } from './components-blogs/all-blogs/all-blogs.compon
 import { AddNewBlogComponent } from './components-blogs/add-new-blog/add-new-blog.component';
 import { CategoriesBlogsComponent } from './components-blogs/categories-blogs/categories-blogs.component';
 import { TagsBlogsComponent } from './components-blogs/tags-blogs/tags-blogs.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { TagsBlogsComponent } from './components-blogs/tags-blogs/tags-blogs.com
   ],
   imports: [
     CommonModule,
-    BlogsRoutingModule
+    BlogsRoutingModule,
+    SharedModule
   ]
 })
 export class BlogsModule { }

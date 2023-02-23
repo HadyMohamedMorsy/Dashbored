@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AuthLayoutComponent} from './shared/layout/auth-layout/auth-layout.component';
-import { AdminLayoutComponent } from './shared/layout/admin-layout/admin-layout.component';
 import {AuthGuardService} from '@authGuard/auth-guards.service';
-import {LoginService} from '@authGuard/login-guard.service';
+import {AdminLayoutComponent} from './layout/admin-layout/admin-layout.component';
+import {AuthLayoutComponent} from './layout/auth-layout/auth-layout.component';
 
 const routes: Routes = [
   {
@@ -19,13 +18,17 @@ const routes: Routes = [
       {
         path : '',
         loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+        pathMatch : 'full'
+      },
+      {
+        path : 'blogs',
+        loadChildren: () => import('./pages/blogs/blogs.module').then(m => m.BlogsModule)
       }
     ],
   },
   {
     path : 'auth' ,
     component : AuthLayoutComponent,
-    canActivate :[LoginService],
     children : [
       {
         path : '' ,

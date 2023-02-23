@@ -27,7 +27,7 @@ export class AdminLayoutComponent implements OnInit {
         label: 'Blogs',
         icon: 'pi pi-fw pi-pencil',
         items: [
-          { label: 'All Posts', icon: 'pi pi-fw pi-table' },
+          { label: 'All Posts', icon: 'pi pi-fw pi-table' , routerLink : '/admin/blogs' },
           { label: 'Add New', icon: 'pi pi-fw pi-folder-open' },
           { label: 'catagories', icon: 'pi pi-fw pi-th-large' },
           { label: 'Tags', icon: 'pi pi-fw pi-tags' },
