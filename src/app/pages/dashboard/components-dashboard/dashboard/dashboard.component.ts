@@ -10,9 +10,14 @@ import { MenuItem } from 'primeng/api';
 })
 export class DashboardComponent implements OnInit {
   private auth = inject(AuthService);
+<<<<<<< HEAD
   display = true;
   items!: MenuItem[];
 
+=======
+  items!: MenuItem[];
+  
+>>>>>>> main
   ngOnInit() {
     this.auth.autoLogin();
 

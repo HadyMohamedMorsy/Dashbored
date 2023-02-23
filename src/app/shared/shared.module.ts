@@ -10,11 +10,14 @@ import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MenubarModule } from 'primeng/menubar';
+<<<<<<< HEAD
 import { SidebarModule } from 'primeng/sidebar';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { AvatarModule } from 'primeng/avatar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { LayoutModule } from '@angular/cdk/layout';
+=======
+>>>>>>> main
 
 
 @NgModule({
@@ -29,11 +32,14 @@ import { LayoutModule } from '@angular/cdk/layout';
     ToastModule,
     NgxSpinnerModule,
     MenubarModule,
+<<<<<<< HEAD
     SidebarModule,
     PanelMenuModule,
     AvatarModule,
     SplitButtonModule,
     LayoutModule,
+=======
+>>>>>>> main
   ],
   exports: [
     FormlyModule,
@@ -46,11 +52,14 @@ import { LayoutModule } from '@angular/cdk/layout';
     ToastModule,
     NgxSpinnerModule,
     MenubarModule,
+<<<<<<< HEAD
     SidebarModule,
     PanelMenuModule,
     AvatarModule,
     SplitButtonModule,
     LayoutModule,
+=======
+>>>>>>> main
   ],
 })
 export class SharedModule {}
