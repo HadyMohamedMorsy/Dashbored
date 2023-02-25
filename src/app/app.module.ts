@@ -11,7 +11,7 @@ import {SharedLayoutModule} from './layout/layout.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
-import { HandlerRequestInterceptor } from '@shared/handler-request.interceptor';
+import { HandlerRequestInterceptor } from 'src/app/core/interceptor/handler-request.interceptor';
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {

@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~primeflex/primeflex.css';
 @import '~primeicons/primeicons.css';
 @import '~primeng/resources/themes/lara-light-blue/theme.css';
-@import '~primeng/resources/themes/lara-light-blue/theme.css';
-@import '~primeflex/primeflex.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 :root{
@@ -22,7 +21,7 @@
   }
 }
 .container{
-  width: min(100% , calc(1420px - 10rem));
+  width: min(100% , calc(1420px - 15rem));
   margin-inline: auto;
 }
 * , *::after , *::before{
@@ -30,6 +29,13 @@
 }
 p{
   margin: 0;
+}
+
+.p-component-overlay{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 body{
@@ -70,3 +76,5 @@ a{
 .text-color{
   color: var(--text);
 }
+
+

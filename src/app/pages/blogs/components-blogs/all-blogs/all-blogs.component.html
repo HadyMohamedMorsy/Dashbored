@@ -1,1 +1,31 @@
-<p>all-blogs works!</p>
+
+  <p-table
+  [value]="blog" [lazy]="true"
+  dataKey="ID" [paginator]="true"
+  [loading]="loading"
+  [rows]="10" [totalRecords]="totalRecords"
+  (onLazyLoad)="loadBlogs($event)"
+  >
+      <ng-template pTemplate="header">
+        <tr>
+            <th>Title</th>
+            <th>Details</th>
+            <th>Created_By</th>
+            <th>Created_Date</th>
+            <th>Updated_Date</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-blog >
+          <tr>
+              <td>{{blog.Title | slice:0:25}}</td>
+              <td>{{blog.Details | slice:0:25}}</td>
+              <td>{{blog.Created_By}}</td>
+              <td>{{blog.Created_Date | date }}</td>
+              <td>{{blog.Updated_Date | date }}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+
+
+
+

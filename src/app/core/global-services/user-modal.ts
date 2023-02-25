@@ -14,6 +14,6 @@ export class User {
     if(!this._expires_in || new Date() > this._expires_in){
       return null;
     }
-    return `${this._token_type} ${this._token}`;
+    return `${this._token}`;
   }
 }

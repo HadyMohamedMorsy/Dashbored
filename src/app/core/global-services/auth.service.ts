@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Login , ResponseLogin } from '@modal/login';
+import { Login , ResponseLogin } from 'src/app/core/global-modal/login';
 import {environment} from '@environment/environments';
 import { BehaviorSubject, tap } from 'rxjs';
 import { User } from './user-modal';
@@ -71,6 +71,7 @@ export class AuthService {
   }
 
   autoLogout(expiationTimeToken : number){
+    console.log(expiationTimeToken);
     this.TimerExpirationToken = setTimeout(()=>{
         this.logout();
       },expiationTimeToken)

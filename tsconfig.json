@@ -3,11 +3,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@modal/*" : ["./src/app/global-modal/*"],
-      "@services/*" : ["./src/app/global-services/*"],
+      "@modal/*" : ["src/app/core/global-modal/*"],
+      "@services/*" : ["src/app/core/global-services/*"],
       "@environment/*" : ["./src/environments/*"],
       "@shared/*" : ["./src/app/shared/*"],
-      "@authGuard/*" : ["./src/app/global-services/*"]
+      "@authGuard/*" : ["src/app/core/guards/*"]
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

@@ -8,7 +8,7 @@ import {
   HttpParams
 } from '@angular/common/http';
 import { catchError, exhaustMap, Observable, switchMap, throwError, take } from 'rxjs';
-import { AuthService } from '@services/auth.service';
+import { AuthService } from 'src/app/core/global-services/auth.service';
 import { User } from '../global-services/user-modal';
 @Injectable()
 export class HandlerRequestInterceptor implements HttpInterceptor {
@@ -21,13 +21,17 @@ export class HandlerRequestInterceptor implements HttpInterceptor {
         switchMap(res => {
           if(!res){
             return next.handle(request).pipe(catchError(this.HandlerError));
+          }else{
+            let authorization = res.token;
+            const RequestHandler = request.clone(
+              {
+                headers : request.headers.set('Authorization',`Bearer ${authorization}`),
+              }
+            )
+
+            return next.handle(RequestHandler).pipe(catchError(this.HandlerError));
           }
-          const RequestHandler = request.clone(
-            {
-              params : new HttpParams().set('Authorization' , res.token ? res.token : ''),
-            }
-          )
-          return next.handle(RequestHandler).pipe(catchError(this.HandlerError));
+
         })
 
     );

@@ -14,10 +14,14 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { AvatarModule } from 'primeng/avatar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { LayoutModule } from '@angular/cdk/layout';
+import { TableModule} from 'primeng/table';
+import { SharedTableComponent } from './components/shared-table/shared-table.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SharedTableComponent
+  ],
   imports: [
     CommonModule,
     FormlyModule,
@@ -33,6 +37,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     AvatarModule,
     SplitButtonModule,
     LayoutModule,
+    TableModule,
   ],
   exports: [
     FormlyModule,
@@ -50,6 +55,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     AvatarModule,
     SplitButtonModule,
     LayoutModule,
+    TableModule,
+    SharedTableComponent
   ],
 })
 export class SharedModule {}

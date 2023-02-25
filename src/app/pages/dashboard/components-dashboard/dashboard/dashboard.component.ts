@@ -1,12 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { AuthGuardService } from '@services/auth-guards.service';
-import { AuthService } from '@services/auth.service';
+import { ChangeDetectionStrategy ,Component, inject, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/global-services/auth.service';
 import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
+  changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit {
   private auth = inject(AuthService);

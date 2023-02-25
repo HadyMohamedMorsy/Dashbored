@@ -1,6 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit, inject} from '@angular/core';
-import { AuthService } from '@services/auth.service';
+import { AuthService } from 'src/app/core/global-services/auth.service';
 import { MenuItem } from 'primeng/api';
 
 @Component({

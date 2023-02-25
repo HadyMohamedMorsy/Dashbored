@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
-import { Component, inject, OnDestroy } from '@angular/core';
-import { Login } from '@modal/login';
-import { AuthService } from '@services/auth.service';
+import { ChangeDetectionStrategy,Component, inject, OnDestroy } from '@angular/core';
+import { Login } from 'src/app/core/global-modal/login';
+import { AuthService } from 'src/app/core/global-services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MessageService} from 'primeng/api';
 import { NgxSpinnerService } from "ngx-spinner";
@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   providers: [MessageService],
+  changeDetection : ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnDestroy {
   private Router = inject(Router);
