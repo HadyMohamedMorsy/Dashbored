@@ -17,7 +17,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { TableModule} from 'primeng/table';
 import { SharedTableComponent } from './components/shared-table/shared-table.component';
 
-
 @NgModule({
   declarations: [
     SharedTableComponent
