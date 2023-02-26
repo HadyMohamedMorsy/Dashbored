@@ -23,6 +23,14 @@ const routes: Routes = [
       {
         path : 'blogs',
         loadChildren: () => import('./pages/blogs/blogs.module').then(m => m.BlogsModule)
+      },
+      {
+        path : 'users',
+        loadChildren: () => import('./pages/users/users.module').then(m => m.UsersModule)
+      },
+      {
+        path : 'products',
+        loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule)
       }
     ],
   },

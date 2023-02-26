@@ -15,15 +15,32 @@ import { AvatarModule } from 'primeng/avatar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { LayoutModule } from '@angular/cdk/layout';
 import { TableModule} from 'primeng/table';
-import { SharedTableComponent } from './components/shared-table/shared-table.component';
+import { BlogsTableComponent } from './components/blogs-table/blogs-table.component';
+import { UsersComponent } from './components/users-table/users.component';
+import { ProductsTableComponent } from './components/products-table/products-table.component';
+import { SharedAddPostTypeComponent } from './components/shared-add-post-type/shared-add-post-type.component';
+import {DialogModule} from 'primeng/dialog';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import { BasicComponent } from './fields/basic/basic.component';
+import { MultiselectingComponent } from './fields/multiselecting/multiselecting.component';
 
 @NgModule({
   declarations: [
-    SharedTableComponent
+    BlogsTableComponent,
+    UsersComponent,
+    ProductsTableComponent,
+    SharedAddPostTypeComponent,
+    BasicComponent,
+    MultiselectingComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
-    FormlyModule,
+    FormlyModule.forRoot({
+      types: [
+        { name: 'basicInput', component: BasicComponent },
+      ],
+    }),
     FormsModule,
     HttpClientModule,
     FormlyPrimeNGModule,
@@ -37,6 +54,8 @@ import { SharedTableComponent } from './components/shared-table/shared-table.com
     SplitButtonModule,
     LayoutModule,
     TableModule,
+    DialogModule,
+    AutoCompleteModule
   ],
   exports: [
     FormlyModule,
@@ -55,7 +74,11 @@ import { SharedTableComponent } from './components/shared-table/shared-table.com
     SplitButtonModule,
     LayoutModule,
     TableModule,
-    SharedTableComponent
+    BlogsTableComponent,
+    UsersComponent,
+    ProductsTableComponent,
+    DialogModule,
+    AutoCompleteModule
   ],
 })
 export class SharedModule {}

@@ -27,7 +27,12 @@ export class AdminLayoutComponent implements OnInit {
         label: 'Blogs',
         icon: 'pi pi-fw pi-pencil',
         items: [
-          { label: 'All Posts', icon: 'pi pi-fw pi-table' , routerLink : '/admin/blogs' },
+          {
+          label: 'All Posts',
+          icon: 'pi pi-fw pi-table' ,
+          routerLink : '/admin/blogs',
+          routerLinkActiveOptions: { exact: true },
+          },
           { label: 'Add New', icon: 'pi pi-fw pi-folder-open' },
           { label: 'catagories', icon: 'pi pi-fw pi-th-large' },
           { label: 'Tags', icon: 'pi pi-fw pi-tags' },
@@ -37,7 +42,11 @@ export class AdminLayoutComponent implements OnInit {
         label: 'Products',
         icon: 'pi pi-fw pi-shopping-bag',
         items: [
-          { label: 'All Products', icon: 'pi pi-fw pi-table' },
+          {
+          label: 'All Products', icon: 'pi pi-fw pi-table',
+          routerLink : '/admin/products',
+          routerLinkActiveOptions: { exact: true },
+          },
           { label: 'Add New', icon: 'pi pi-fw pi-folder-open' },
           { label: 'catagories', icon: 'pi pi-fw pi-th-large' },
         ],
@@ -63,7 +72,12 @@ export class AdminLayoutComponent implements OnInit {
         label: 'Users',
         icon: 'pi pi-fw pi-users',
         items: [
-          { label: 'All Users', icon: 'pi pi-fw pi-table' },
+          {
+            label: 'All Users',
+            icon: 'pi pi-fw pi-table',
+            routerLink : '/admin/users',
+            routerLinkActiveOptions: { exact: true },
+          },
           { label: 'Add New', icon: 'pi pi-fw pi-user-plus' },
           { label: 'Profile', icon: 'pi pi-fw pi-user' },
         ],

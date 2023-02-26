@@ -1,0 +1,14 @@
+<div class="add-post-type flex justify-content-end pt-4 pb-4 pl-3 pr-3 border-round-2xl">
+  <p-button [label]="label" (click)="showDialog()"></p-button>
+</div>
+<p-dialog header="Title" [(visible)]="display" [modal]="true" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}">
+  <ng-template pTemplate="header">
+    <h1> Add New Blog </h1>
+  </ng-template>
+  <ng-template pTemplate="body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(model)" class="pt-5">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+      <p-button type="submit" class="btn btn-default"> Submit </p-button>
+    </form>
+  </ng-template>
+</p-dialog>

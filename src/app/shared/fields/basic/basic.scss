@@ -1,0 +1,17 @@
+:host ::ng-deep{
+  .p-float-label{
+    width: 95%;
+    margin-inline: auto;
+    .p-inputtext{
+      border-inline: none;
+      border-top: none;
+      border-radius: 0%;
+    }
+  }
+  .p-inputtext:enabled:focus{
+    box-shadow: none;
+    border-inline: none;
+    border-top: none;
+    border-bottom-color: #3B82F6;
+  }
+}

@@ -7,7 +7,7 @@ import {environment} from '@environment/environments';
   providedIn: 'root'
 })
 export class BlogsService {
-  private http =  inject(HttpClient);
+    private http =  inject(HttpClient);
   currentPage = new BehaviorSubject(1);
   getBlogs() {
     return this.currentPage.pipe(switchMap(page =>{

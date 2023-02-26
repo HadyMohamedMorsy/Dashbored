@@ -7,8 +7,6 @@ import { AddNewBlogComponent } from './components-blogs/add-new-blog/add-new-blo
 import { CategoriesBlogsComponent } from './components-blogs/categories-blogs/categories-blogs.component';
 import { TagsBlogsComponent } from './components-blogs/tags-blogs/tags-blogs.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SharedTableComponent } from '@shared/components/shared-table/shared-table.component';
-
 
 @NgModule({
   declarations: [

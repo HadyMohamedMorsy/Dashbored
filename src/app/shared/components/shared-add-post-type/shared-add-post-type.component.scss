@@ -1,0 +1,11 @@
+.add-post-type
+{
+  background-color: var(--white);
+  box-shadow: 0 10px 30px 0 rgba(47, 60, 74, 0.08);
+}
+
+:host ::ng-deep{
+  input{
+    width: 100%;
+  }
+}

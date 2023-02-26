@@ -6,6 +6,7 @@ import { AllUsersComponent } from './components-users/all-users/all-users.compon
 import { AddNewUserComponent } from './components-users/add-new-user/add-new-user.component';
 import { EditPermissionsUsersComponent } from './components-users/edit-permissions-users/edit-permissions-users.component';
 import { ProfileUserComponent } from './components-users/profile-user/profile-user.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ProfileUserComponent } from './components-users/profile-user/profile-us
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    SharedModule
   ]
 })
 export class UsersModule { }
