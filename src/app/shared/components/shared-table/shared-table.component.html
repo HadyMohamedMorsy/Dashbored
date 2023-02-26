@@ -1,26 +1,26 @@
-<!-- <p-table
-[value]="sourceData" [lazy]="true"
+<p-table
+[value]="Blogs" [lazy]="true"
 dataKey="id"[paginator]="true"
 [rows]="10" [totalRecords]="totalRecords"
-[loading]="loading">
+[loading]="loading"
+(onLazyLoad)="loadBlogs($event)"
+>
     <ng-template pTemplate="header">
-      <tr>
-          <th>
-            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-          </th>
-          <th pSortableColumn="Title">Title</th>
-          <th pSortableColumn="Details">Details</th>
-          <th pSortableColumn="Created_By">Created_By</th>
-      </tr>
+    <tr>
+      <th>Title</th>
+      <th>Details</th>
+      <th>Created_By</th>
+      <th>Created_Date</th>
+      <th>Updated_Date</th>
+    </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-sourceData>
+    <ng-template pTemplate="body" let-Blogs>
       <tr>
-          <td>
-            <p-tableCheckbox [value]="sourceData"></p-tableCheckbox>
-          </td>
-          <td>{{sourceData.Title}}</td>
-          <td>{{sourceData.Details}}</td>
-          <td>{{sourceData.Created_By}}</td>
+        <td>{{Blogs.Title | slice:0:25}}</td>
+        <td>{{Blogs.Details | slice:0:25}}</td>
+        <td>{{Blogs.Created_By}}</td>
+        <td>{{Blogs.Created_Date | date }}</td>
+        <td>{{Blogs.Updated_Date | date }}</td>
       </tr>
   </ng-template>
-</p-table> -->
+</p-table>

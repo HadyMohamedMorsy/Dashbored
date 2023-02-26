@@ -1,5 +1,5 @@
 
-  <p-table
+  <!-- <p-table
   [value]="blog" [lazy]="true"
   dataKey="ID" [paginator]="true"
   [loading]="loading"
@@ -24,8 +24,9 @@
               <td>{{blog.Updated_Date | date }}</td>
           </tr>
       </ng-template>
-  </p-table>
+  </p-table> -->
 
+  <app-shared-table [DateBind]="blog$" (EventPagination)="changePagination($event)"></app-shared-table>
 
 
 

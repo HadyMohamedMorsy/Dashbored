@@ -1,21 +1,33 @@
-import { Component, Input, SimpleChanges , OnChanges } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, Input, Output, EventEmitter, ChangeDetectorRef, inject } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
+
 @Component({
   selector: 'app-shared-table',
   templateUrl: './shared-table.component.html',
   styleUrls: ['./shared-table.component.scss']
 })
-export class SharedTableComponent implements OnChanges {
-  @Input() customers : any;
+export class SharedTableComponent {
+  @Input() DateBind !: Observable<any>;
+  @Output() EventPagination  = new EventEmitter<number>()
+  private cdRef = inject(ChangeDetectorRef);
+  totalRecords !: number;
   loading = false;
-  sourceData : any;
-  totalRecords = 200;
+  Blogs : any;
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
-    // if(changes['customers'].currentValue){
-    //   this.sourceData = changes['customers'].currentValue;
-    // }
+ngOnInit(): void {
+  this.loading = true;
+  this.DateBind.subscribe((blog : any)=>{
+    this.loading = false;
+    this.Blogs = blog.result.data;
+    this.totalRecords = blog.result.meta.total;
+    this.cdRef.detectChanges();
+  });
+}
+
+  loadBlogs(event : LazyLoadEvent){
+    let currentPage = event.first ?  event.first : 0;
+    this.EventPagination.emit(currentPage  / 10);
   }
 
 }

@@ -1,10 +1,6 @@
 
-import { ChangeDetectionStrategy ,Component, inject, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/core/global-services/auth.service';
-import { MenuItem } from 'primeng/api';
-import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '@services/auth.service';
-
+import { Component, inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',

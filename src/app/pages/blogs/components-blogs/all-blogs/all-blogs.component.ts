@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {BlogsService} from '@services/blogs.service';
-import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
   selector: 'app-all-blogs',
@@ -9,28 +8,15 @@ import { LazyLoadEvent } from 'primeng/api';
 })
 export class AllBlogsComponent {
   private blogs =  inject(BlogsService);
-  private cdRef = inject(ChangeDetectorRef);
-  blog : any;
-  finalData : any;
-  rows !: number
-  totalRecords!: number;
-  loading = false;
+  blog$ : any;
 
   ngOnInit(): void {
-    this.loading = true;
-    this.blogs.getBlogs().subscribe((blog)=>{
-      this.loading = false;
-      this.blog = blog.result.data;
-      this.totalRecords = blog.result.meta.last_page;
-      this.cdRef.detectChanges();
-    })
+    this.blog$ = this.blogs.getBlogs();
   }
 
-  loadBlogs(event: LazyLoadEvent){
-    this.loading = true;
-    this.blogs.currentPage.next((event.first? event.first : 10 / 10));
-    if(this.blog){
-      this.loading = false;
-    }
+  changePagination(event : number){
+    let filterEvent = Math.trunc(event) + 1;
+    this.blogs.currentPage.next(filterEvent)
   }
+
 }
