@@ -42,7 +42,7 @@ ngOnInit(): void {
 
   loadBlogs(event : LazyLoadEvent){
     this.loading = true;
-    let currentPage = event.first ?  event.first : 0;
+    let currentPage = event.first!;
     this.EventPagination.emit(currentPage  / 10);
   }
 

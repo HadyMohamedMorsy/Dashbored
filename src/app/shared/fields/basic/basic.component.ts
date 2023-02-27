@@ -4,7 +4,7 @@ import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 @Component({
   selector: 'app-basic',
   template: `
-  <div class="p-fluid grid">
+  <div class="p-fluid">
     <span class="p-float-label">
         <input type="text" pInputText [formControl]="formControl" [formlyAttributes]="field">
         <label for="inputtext">{{field.props.label}}</label>

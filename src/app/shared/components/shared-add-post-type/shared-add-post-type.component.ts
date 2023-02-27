@@ -1,52 +1,53 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {FormlyFieldConfig} from '@ngx-formly/core';
+import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core';
 
 @Component({
   selector: 'app-shared-add-post-type',
   templateUrl: './shared-add-post-type.component.html',
-  styleUrls: ['./shared-add-post-type.component.scss']
+  styleUrls: ['./shared-add-post-type.component.scss'],
 })
 export class SharedAddPostTypeComponent {
-  @Input() label !: string;
+  @Input() label!: string;
   form = new FormGroup({});
   display: boolean = false;
-  model = {};
+  BlogModel = {};
+  options: FormlyFormOptions = {};
 
   fields: FormlyFieldConfig[] = [
     {
       fieldGroupClassName: 'grid align-items-center',
-      fieldGroup : [
+      fieldGroup: [
         {
-        key: 'title',
-        type: 'basicInput',
-        className : 'col-6',
-        props: {
-          required: true,
-          type: 'text',
-          label: 'Title',
-          className : 'w-full'
+          key: 'title',
+          type: 'basicInput',
+          className: 'col',
+          props: {
+            required: true,
+            label: 'Title',
+          },
         },
-      },
         {
-        key: 'Details',
-        type: 'basicInput',
-        className : 'col-6',
-        props: {
-          required: true,
-          type: 'text',
-          label: 'Details',
+          key: 'Details',
+          type: 'basicInput',
+          className: 'col',
+          props: {
+            required: true,
+            label: 'Details',
+          },
+          expressions: {
+            'props.disabled': '!model.title',
+          },
         },
-      }
-    ]
-    }
+      ],
+    },
   ];
 
   showDialog() {
     this.display = true;
   }
 
-  onSubmit(model : any) {
-    console.log(model);
+  onSubmit(BlogModel: any) {
+    console.log(this.fields);
   }
 }

@@ -23,6 +23,7 @@ import {DialogModule} from 'primeng/dialog';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { BasicComponent } from './fields/basic/basic.component';
 import { MultiselectingComponent } from './fields/multiselecting/multiselecting.component';
+import { TextareaComponent } from './fields/textarea/textarea.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +33,20 @@ import { MultiselectingComponent } from './fields/multiselecting/multiselecting.
     SharedAddPostTypeComponent,
     BasicComponent,
     MultiselectingComponent,
+    TextareaComponent,
   ],
   imports: [
     ReactiveFormsModule,
     CommonModule,
     FormlyModule.forRoot({
+      validationMessages: [
+        { name: 'required', message: 'This field is required' },
+      ],
       types: [
         { name: 'basicInput', component: BasicComponent },
+        { name: 'textareaInput', component: TextareaComponent },
       ],
-    }),
+    }), 
     FormsModule,
     HttpClientModule,
     FormlyPrimeNGModule,
@@ -55,7 +61,7 @@ import { MultiselectingComponent } from './fields/multiselecting/multiselecting.
     LayoutModule,
     TableModule,
     DialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
   ],
   exports: [
     FormlyModule,
@@ -78,7 +84,7 @@ import { MultiselectingComponent } from './fields/multiselecting/multiselecting.
     UsersComponent,
     ProductsTableComponent,
     DialogModule,
-    AutoCompleteModule
+    AutoCompleteModule,
   ],
 })
 export class SharedModule {}
