@@ -1,4 +1,19 @@
-<app-blogs-table [DateBind]="blog$" (EventPagination)="changePagination($event)"></app-blogs-table>
+<app-table [DateBind]="blog$"
+(EventPagination)="changePagination($event)"
+[filterKey]="FilterKey"
+[label]="label"
+>
+  <ng-template #body let-blog>
+    <td>{{blog.ID}}</td>
+    <td>{{blog.Title | slice:0:25}}</td>
+    <td>{{blog.Details | slice:0:25}}</td>
+    <td>{{blog.Created_By}}</td>
+    <td>{{blog.Updated_By}}</td>
+    <td>{{blog.Created_Date | date }}</td>
+    <td>{{blog.Updated_Date | date }}</td>
+  </ng-template>
+</app-table>
+
 
 
 

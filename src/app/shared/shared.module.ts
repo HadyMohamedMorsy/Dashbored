@@ -15,9 +15,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { LayoutModule } from '@angular/cdk/layout';
 import { TableModule} from 'primeng/table';
-import { BlogsTableComponent } from './components/blogs-table/blogs-table.component';
-import { UsersComponent } from './components/users-table/users.component';
-import { ProductsTableComponent } from './components/products-table/products-table.component';
+import { TableComponent } from './components/table/table.component';
 import { SharedAddPostTypeComponent } from './components/shared-add-post-type/shared-add-post-type.component';
 import {DialogModule} from 'primeng/dialog';
 import {AutoCompleteModule} from 'primeng/autocomplete';
@@ -27,9 +25,7 @@ import { TextareaComponent } from './fields/textarea/textarea.component';
 
 @NgModule({
   declarations: [
-    BlogsTableComponent,
-    UsersComponent,
-    ProductsTableComponent,
+    TableComponent,
     SharedAddPostTypeComponent,
     BasicComponent,
     MultiselectingComponent,
@@ -46,7 +42,7 @@ import { TextareaComponent } from './fields/textarea/textarea.component';
         { name: 'basicInput', component: BasicComponent },
         { name: 'textareaInput', component: TextareaComponent },
       ],
-    }), 
+    }),
     FormsModule,
     HttpClientModule,
     FormlyPrimeNGModule,
@@ -80,9 +76,7 @@ import { TextareaComponent } from './fields/textarea/textarea.component';
     SplitButtonModule,
     LayoutModule,
     TableModule,
-    BlogsTableComponent,
-    UsersComponent,
-    ProductsTableComponent,
+    TableComponent,
     DialogModule,
     AutoCompleteModule,
   ],

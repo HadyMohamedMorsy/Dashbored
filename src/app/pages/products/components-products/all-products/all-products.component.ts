@@ -9,6 +9,8 @@ import {ProductsService} from '@services/products.service';
 export class AllProductsComponent {
   private products =  inject(ProductsService);
   products$ : any;
+  filterKey = ['Images','Size','Color','DiscountPrice','Total', 'FeatureImage', 'Slug','SKU', 'AccessibilityPurchase','Discount','OfferTime','Updated_By','Deleted_Date']
+  label = 'Add Products'
 
   ngOnInit(): void {
     this.products$ = this.products.getProducts();

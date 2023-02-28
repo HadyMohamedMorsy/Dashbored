@@ -9,7 +9,8 @@ import {BlogsService} from '@services/blogs.service';
 export class AllBlogsComponent {
   private blogs =  inject(BlogsService);
   blog$ : any;
-
+  label = 'Add Blog'
+  FilterKey = ['FeatureImage','Deleted_Date'];
   ngOnInit(): void {
     this.blog$ = this.blogs.getBlogs();
   }

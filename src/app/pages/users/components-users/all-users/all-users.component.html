@@ -1,1 +1,13 @@
-<app-users [DateBind]="user$" (EventPagination)="changePagination($event)"></app-users>
+<app-table [DateBind]="user$"
+(EventPagination)="changePagination($event)"
+[filterKey]="filterKey"
+[label]="label"
+>
+  <ng-template #body let-user>
+    <td>{{user.ID}}</td>
+    <td>{{user.Name | slice:0:25}}</td>
+    <td>{{user.Email}}</td>
+    <td>{{user.Created_Date}}</td>
+    <td>{{user.Updated_Date | date }}</td>
+  </ng-template>
+</app-table>

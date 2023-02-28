@@ -1,1 +1,17 @@
-<app-products-table [DateBind]="products$" (EventPagination)="changePagination($event)"></app-products-table>
+<app-table [DateBind]="products$"
+(EventPagination)="changePagination($event)"
+[filterKey] = "filterKey"
+[label]="label"
+>
+<ng-template #body let-product>
+  <td>{{product.ID}}</td>
+  <td>{{product.Name | slice:0:25}}</td>
+  <td>{{product.Details | slice:0:25}}</td>
+  <td>{{product.Type}}</td>
+  <td>{{product.Price}}</td>
+  <td>{{product.Views}}</td>
+  <td>{{product.Created_By }}</td>
+  <td>{{product.Created_Date | date }}</td>
+  <td>{{product.Updated_Date | date }}</td>
+</ng-template>
+</app-table>

@@ -10,7 +10,8 @@ import {UsersService} from '@services/users.service';
 export class AllUsersComponent {
   private users =  inject(UsersService);
   user$ : any;
-
+  label = 'Add Users'
+  filterKey = ['Deleted_Date'];
   ngOnInit(): void {
     this.user$ = this.users.getUsers();
   }

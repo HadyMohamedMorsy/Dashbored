@@ -1,25 +1,43 @@
 import { Observable, tap, Subscription } from 'rxjs';
-import { Component, Input, Output, EventEmitter, ChangeDetectorRef, inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectorRef, inject, TemplateRef, ContentChild } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
+import { Table, TableService } from 'primeng/table';
+
+export function tableFactory(tableComponent: TableComponent) {
+  return tableComponent.primingTable;
+}
 
 @Component({
-  selector: 'app-blogs-table',
-  templateUrl: './blogs-table.component.html',
-  styleUrls: ['./blogs-table.component.scss']
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss'],
+  providers: [
+    TableService,
+    {
+      provide: Table,
+      useFactory: tableFactory,
+      deps: [TableComponent]
+    }
+  ]
 })
-export class BlogsTableComponent {
+export class TableComponent {
   @Input() DateBind !: Observable<any>;
   @Output() EventPagination  = new EventEmitter<number>()
+  @ContentChild('body') body!: TemplateRef<any>;
+  @Input() filterKey !: string[];
+  @Input() label !:string;
+
   private cdRef = inject(ChangeDetectorRef);
   totalRecords !: number;
   loading = false;
-  Blogs : any;
+  dataSource : any;
   keys : any;
-  filterKey = ['FeatureImage','Deleted_Date'];
   subscribe !: Subscription;
-  label = "Add Blog"
+  // label = "Add Blog"
+  primingTable: any;
 
 ngOnInit(): void {
+
   this.loading = true;
   this.subscribe = this.DateBind
   .pipe(
@@ -31,10 +49,10 @@ ngOnInit(): void {
       this.keys = getKeys;
     })
   )
-  .subscribe((blog : any)=>{
+  .subscribe((data : any)=>{
     this.loading = false;
-    this.Blogs = blog.result.data;
-    this.totalRecords = blog.result.meta.total;
+    this.dataSource = data.result.data;
+    this.totalRecords = data.result.meta.total;
     this.cdRef.detectChanges();
   });
 }

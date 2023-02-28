@@ -1,0 +1,25 @@
+<app-shared-add-post-type [label]='label'
+>
+</app-shared-add-post-type>
+
+<p-table
+[value]="dataSource" [lazy]="true"
+dataKey="id"[paginator]="true"
+[rows]="10" [totalRecords]="totalRecords"
+[loading]="loading"
+(onLazyLoad)="loadBlogs($event)"
+>
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let key of keys"> {{key}}</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-Blogs>
+      <tr>
+         <ng-container *ngTemplateOutlet="body; context: { $implicit: Blogs }"></ng-container>
+      </tr>
+  </ng-template>
+
+</p-table>
+
